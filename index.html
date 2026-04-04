@@ -288,25 +288,26 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
+<!-- Single Image Presentation -->
 <section class="hero is-small">
   <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Framework</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/tip-pipeline_01.png" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          Our Local Dimension Enhancement (LoDE) framework. (a) LoDE learns motion unit-scale representations by applying a masked modeling strategy with weight-sharing Siamese encoders. (b) The Multi-scale Action Semantics Learning (MASL) module captures multi-scale semantics by aligning the reconstructed objectives from the masked view with original skeletons and quantized representations from the unmasked view. (c) LER regularization (LERR) is applied to the masked view to encourage a more uniform singular value distribution and increase local intrinsic dimension.
-        </h2>
+    <div class="container is-max-desktop">
+      <h2 class="title has-text-centered">Framework</h2>
+      
+      <!-- 图片容器，居中显示 -->
+      <div class="has-text-centered">
+        <img src="static/images/tip-pipeline_01.png" alt="LoDE framework pipeline" width="100%" />
       </div>
+
+      <!-- 图片描述说明 -->
+      <h2 class="subtitle has-text-justified" style="margin-top: 20px; font-size: 1.1rem;">
+        <b>Our Local Dimension Enhancement (LoDE) framework.</b> (a) LoDE learns motion unit-scale representations by applying a masked modeling strategy with weight-sharing Siamese encoders. (b) The Multi-scale Action Semantics Learning (MASL) module captures multi-scale semantics by aligning the reconstructed objectives from the masked view with original skeletons and quantized representations from the unmasked view. (c) LER regularization (LERR) is applied to the masked view to encourage a more uniform singular value distribution and increase local intrinsic dimension.
+      </h2>
+      
+    </div>
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
+<!-- End Single Image -->
 
 
 <!-- Paper poster -->
