@@ -309,21 +309,82 @@
 </section>
 <!-- End Single Image -->
 
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- Image carousel with 6 images -->
+<section class="hero is-small">
   <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
+    <div class="container is-max-desktop">
+      <h2 class="title has-text-centered">Results Gallery</h2>
+      
+      <!-- 轮播图容器开始 -->
+      <div id="results-carousel" class="carousel results-carousel">
+       
+        <!-- ================= 第 1 张图 ================= -->
+        <div class="item">
+          <div class="has-text-centered">
+            <img src="static/images/pku1_res.png" alt="Result 1" />
+          </div>
+          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
+            <b>Result 1:</b> Fine-tuning TAS performance on PKU-I.
+          </h2>
+        </div>
 
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+        <!-- ================= 第 2 张图 ================= -->
+        <div class="item">
+          <div class="has-text-centered">
+            <img src="static/images/pku2_res.png" alt="Result 2" />
+          </div>
+          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
+            <b>Result 2:</b> Fine-tuning TAS performance on PKU-II.
+          </h2>
+        </div>
+
+        <!-- ================= 第 3 张图 ================= -->
+        <div class="item">
+          <div class="has-text-centered">
+            <img src="static/images/tsu.png" alt="Result 3" />
+          </div>
+          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
+            <b>Result 3:</b> Fine-tuning TAS performance on TSU.
+          </h2>
+        </div>
+
+        <!-- ================= 第 4 张图 ================= -->
+        <div class="item">
+          <div class="has-text-centered">
+            <img src="static/images/babel.png" alt="Result 4" />
+          </div>
+          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
+            <b>Result 4:</b> Fine-tuning TAS performance on BABEL-subsets.
+          </h2>
+        </div>
+
+        <!-- ================= 第 5 张图 ================= -->
+        <div class="item">
+          <div class="has-text-centered">
+            <img src="static/images/linprobe.png" alt="Result 5" />
+          </div>
+          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
+            <b>Result 5:</b> Linear evaluation TAS performance on PKU-I.
+          </h2>
+        </div>
+
+        <!-- ================= 第 6 张图 ================= -->
+        <div class="item">
+          <div class="has-text-centered">
+            <img src="static/images/recog.png" alt="Result 6" />
+          </div>
+          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
+            <b>Result 6:</b> Fine-tuning Recognition performance.
+          </h2>
+        </div>
+
       </div>
+      <!-- 轮播图容器结束 -->
+
     </div>
-  </section>
-<!--End paper poster -->
+  </div>
+</section>
+<!-- End image carousel -->
 
 
   <footer class="footer">
