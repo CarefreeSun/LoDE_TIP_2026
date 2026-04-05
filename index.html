@@ -309,6 +309,35 @@
 </section>
 <!-- End Single Image -->
 
+<!-- Theoretical Analysis Section -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title has-text-centered mb-5">Core Theoretical Insights</h2>
+    <div class="content is-medium has-text-justified">
+      <p>
+        To address the 
+<b>local dimension collapse</b> problem in self-supervised skeleton-based Temporal Action Segmentation (TAS), we theoretically introduce and analyze the <b>Local Effective Rank (LER)</b>
+ as a manifold dimension measure. 
+      </p>
+      <ul>
+        <li>
+          <b>LER Indicates Information and Performance (Prop. 1 & Lemma 1):</b>
+ We theoretically prove that LER is a tight upper bound for the rank of local representations. A higher LER corresponds to a larger minimal coding length (more information content), which is positively correlated with downstream TAS precision.
+        </li>
+        <li>
+          <b>Limitations of Existing Scales:</b> Our analysis reveals that <i>sequence-scale learning</i> leads to severe local dimension collapse by indiscriminately pulling local representations together, while <i>frame-scale learning</i>
+ is inherently bounded by the low dimensionality of raw skeleton inputs.
+        </li>
+        <li>
+          <b>Superiority of Motion Unit-Scale (Prop. 4):</b> We mathematically demonstrate that our proposed <b>motion unit-scale learning</b>
+ effectively increases the lower bound of LER. It bridges the semantic gap between frames and sequences, mitigating local dimension collapse and enriching representation diversity.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- End Theoretical Analysis Section -->
+
 <!-- Sequential Image Display with 3 images -->
 <section class="hero is-small">
   <div class="hero-body">
