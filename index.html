@@ -130,6 +130,24 @@
     /* 标签样式优化 */
     .author-block a { color: var(--primary-blue); font-weight: 500; }
     .author-block a:hover { text-decoration: underline; }
+    
+    .references-list {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #4a5568;
+    }
+    .reference-item {
+      margin-bottom: 1.2rem;
+      padding-left: 2.2rem; /* 悬挂缩进核心：左内边距 */
+      text-indent: -2.2rem; /* 悬挂缩进核心：首行负缩进 */
+    }
+    .reference-item a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    .reference-item a:hover {
+      text-decoration: underline;
+    }
   </style>
   
   <!-- Fallback for browsers that don't support preload -->
@@ -477,6 +495,47 @@
   </div>
 </section>
 <!-- End sequential image display -->
+    
+
+<section class="section" id="References">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">References</h2>
+    <div class="content references-list">
+      
+      <!-- 引用 1 -->
+      <div class="reference-item">
+        [1] <b>S. Sun</b>, L. Lin, J. Zhang, L. Duan, and J. Liu, "Local Dimension Enhancement Representation Learning for Skeleton-Based Action Segmentation," <i>IEEE Transactions on Image Processing (TIP)</i>, 2026.
+        <a href="https://carefreesun.github.io/LoDE_TIP_2026/" target="_blank">[Paper]</a>
+      </div>
+
+      <!-- 引用 2 -->
+      <div class="reference-item">
+        [2] Y. Abu-Farha and J. Gall, "MS-TCN: Multi-Stage Temporal Convolutional Network for Action Segmentation," <i>Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)</i>, 2019, pp. 5224–5233.
+      </div>
+
+      <!-- 引用 3 -->
+      <div class="reference-item">
+        [3] Z. Li, Y. Zhao, Y. Liu, et al., "Contextual-Aware Skeleton-Based Action Segmentation," <i>Proc. IEEE/CVF Int. Conf. Comput. Vis. (ICCV)</i>, 2023.
+      </div>
+
+      <!-- 引用 4 -->
+      <div class="reference-item">
+        [4] J. Carreira and A. Zisserman, "Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset," <i>Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)</i>, 2017.
+      </div>
+
+      <!-- 引用 5 -->
+      <div class="reference-item">
+        [5] S. Yan, Y. Xiong, and D. Lin, "Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition," <i>Proc. AAAI Conf. Artif. Intell. (AAAI)</i>, 2018.
+      </div>
+
+      <!-- 引用 6 -->
+      <div class="reference-item">
+        [6] Z. Cao, T. Simon, S. Wei, and Y. Sheikh, "Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields," <i>Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)</i>, 2017.
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- 联系方式 -->
 <section class="section">
