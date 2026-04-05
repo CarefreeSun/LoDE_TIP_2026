@@ -318,32 +318,39 @@
   <div class="container is-max-desktop">
     <h2 class="title has-text-centered mb-6">Core Theoretical Insights</h2>
     
-    <!-- 1. LER的定义与物理意义 -->
+<!-- 1. LER的定义与物理意义 -->
     <div class="columns is-vcentered mb-6">
       <div class="column is-7">
         <div class="content is-medium has-text-justified">
           <h3 class="title is-4">1. Quantifying Local Dimension Collapse</h3>
           <p>
-            We introduce 
-<b>Local Effective Rank (LER)</b>
- to measure the dimensionality of the latent space within local regions. Based on the singular values \( \sigma_i \) of the local representation matrix, LER is defined as:
+            We introduce <b>Local Effective Rank (LER)</b> to measure the dimensionality of the latent space within local regions. Based on the singular values \( \sigma_i \) of the local representation matrix, LER is defined as:
           </p>
           <div class="notification is-white has-text-centered" style="font-size: 1.2rem; padding: 1rem;">
             \[ \text{LER}(X) = \exp \left( -\sum_{i=1}^N p_i \log p_i \right), \quad p_i = \frac{\sigma_i}{\sum \sigma_j} \]
           </div>
           <p>
-            As stated in 
-<b>Proposition 1</b>
-, LER is a tight upper bound for the matrix rank: \( 1 \leq \text{LER}(Z) \leq \text{rank}(Z) \), providing a stable indicator of representation diversity.
+            As stated in <b>Proposition 1</b>, LER is a tight upper bound for the matrix rank: \( 1 \leq \text{LER}(Z) \leq \text{rank}(Z) \), providing a stable indicator of representation diversity.
           </p>
           <p>
             Empirically, our analysis confirms that a higher LER corresponds to a larger minimal achievable rank (preserving more information), and exhibits a strong positive correlation (PCC=0.986) with downstream TAS precision.
           </p>
         </div>
       </div>
+
+      <!-- 右侧图片栏：竖向放置两张图 -->
       <div class="column is-5 has-text-centered">
-        <img src="static/images/analysis_ler.png" alt="LER Analysis" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" />
-        <p class="is-size-7 mt-2 has-text-grey"><i>LER exhibits a strong positive correlation (PCC=0.986) with TAS performance.</i></p>
+        <!-- 第一张图：LER vs minimal r -->
+        <div class="mb-5">
+          <img src="static/images/analysis_ler_a.png" alt="LER vs minimal r" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" />
+          <p class="is-size-7 mt-1 has-text-grey"><i>(a) LER vs. minimal achievable rank r.</i></p>
+        </div>
+
+        <!-- 第二张图：LER vs TAS performance -->
+        <div>
+          <img src="static/images/analysis_ler_b.png" alt="LER vs TAS performance" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" />
+          <p class="is-size-7 mt-1 has-text-grey"><i>(b) LER vs. downstream TAS performance (PCC=0.986).</i></p>
+        </div>
       </div>
     </div>
 
