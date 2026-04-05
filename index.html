@@ -309,82 +309,52 @@
 </section>
 <!-- End Single Image -->
 
-<!-- Image carousel with 6 images -->
+<!-- Sequential Image Display with 3 images -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title has-text-centered">Results Gallery</h2>
+      <h2 class="title has-text-centered mb-6">Results Gallery</h2>
       
-      <!-- 轮播图容器开始 -->
-      <div id="results-carousel" class="carousel results-carousel">
+      <!-- 按序展示容器开始 -->
+      <div class="results-sequential">
        
-        <!-- ================= 第 1 张图 ================= -->
-        <div class="item">
+        <!-- ================= 第 1 张图 (PKU-I Finetuning) ================= -->
+        <div class="item mb-6">
           <div class="has-text-centered">
-            <img src="static/images/pku1_res.png" alt="Result 1" />
+            <img src="static/images/pku1_res.png" alt="Fine-tuning TAS performance on PKU-I" />
           </div>
           <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-            <b>Result 1:</b> Fine-tuning TAS performance on PKU-I.
+            <b>Result 1:</b> Fine-tuning temporal action segmentation performance on PKU-I. It demonstrates the superior TAS performance achieved with the high-quality representations initialized from those learned by our LoDE framework.
           </h2>
         </div>
 
-        <!-- ================= 第 2 张图 ================= -->
-        <div class="item">
+        <!-- ================= 第 2 张图 (Linear Evaluation) ================= -->
+        <div class="item mb-6">
           <div class="has-text-centered">
-            <img src="static/images/pku2_res.png" alt="Result 2" />
+            <img src="static/images/linprobe.png" alt="Linear evaluation TAS performance on PKU-I" />
           </div>
           <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-            <b>Result 2:</b> Fine-tuning TAS performance on PKU-II.
+            <b>Result 2:</b> Linear evaluation of temporal action segmentation performance with transfer learning protocol. The results shows the great generalizability of the learned representations across different data distributions.
           </h2>
         </div>
 
-        <!-- ================= 第 3 张图 ================= -->
-        <div class="item">
+        <!-- ================= 第 3 张图 (Recognition) ================= -->
+        <div class="item mb-6">
           <div class="has-text-centered">
-            <img src="static/images/tsu.png" alt="Result 3" />
+            <img src="static/images/recog.png" alt="Fine-tuning Recognition performance" />
           </div>
           <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-            <b>Result 3:</b> Fine-tuning TAS performance on TSU.
-          </h2>
-        </div>
-
-        <!-- ================= 第 4 张图 ================= -->
-        <div class="item">
-          <div class="has-text-centered">
-            <img src="static/images/babel.png" alt="Result 4" />
-          </div>
-          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-            <b>Result 4:</b> Fine-tuning TAS performance on BABEL-subsets.
-          </h2>
-        </div>
-
-        <!-- ================= 第 5 张图 ================= -->
-        <div class="item">
-          <div class="has-text-centered">
-            <img src="static/images/linprobe.png" alt="Result 5" />
-          </div>
-          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-            <b>Result 5:</b> Linear evaluation TAS performance on PKU-I.
-          </h2>
-        </div>
-
-        <!-- ================= 第 6 张图 ================= -->
-        <div class="item">
-          <div class="has-text-centered">
-            <img src="static/images/recog.png" alt="Result 6" />
-          </div>
-          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-            <b>Result 6:</b> Fine-tuning Recognition performance.
+            <b>Result 3:</b> Fine-tuning action recognition performance. It demonstrates the compatibility of our method with action recognition, verifying the generalizability of the representations across tasks of different granularities.
           </h2>
         </div>
 
       </div>
-      <!-- 轮播图容器结束 -->
+      <!-- 按序展示容器结束 -->
 
     </div>
   </div>
 </section>
-<!-- End image carousel -->
+<!-- End sequential image display -->
 
 
   <footer class="footer">
