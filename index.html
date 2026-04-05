@@ -314,45 +314,73 @@
   <div class="container is-max-desktop">
     <h2 class="title has-text-centered mb-6">Core Theoretical Insights</h2>
     
-    <!-- === 第一部分：LER指标及其与性能的关系 (对应论文 Figure 2a, 2b) === -->
+    <!-- 1. LER的定义与物理意义 -->
     <div class="columns is-vcentered mb-6">
       <div class="column is-7">
         <div class="content is-medium has-text-justified">
-          <h3 class="title is-4">1. LER Indicates Information and Performance</h3>
+          <h3 class="title is-4">1. Quantifying Local Dimension Collapse</h3>
           <p>
-            To quantify <b>local dimension collapse</b> in skeleton representations, we introduce the <b>Local Effective Rank (LER)</b> as a stable manifold dimension measure. 
+            We introduce 
+<b>Local Effective Rank (LER)</b>
+ to measure the dimensionality of the latent space within local regions. Based on the singular values \( \sigma_i \) of the representation matrix, LER is defined as:
           </p>
+          <div class="notification is-white has-text-centered" style="font-size: 1.2rem; padding: 1rem;">
+            \[ ER(X) = \exp \left( -\sum_{i=1}^N p_i \log p_i \right), \quad p_i = \frac{\sigma_i}{\sum \sigma_j} \]
+          </div>
           <p>
-            Theoretically, we prove (<i>Prop. 1 & Lemma 1</i>) that LER is a tight upper bound for the rank of local representations. Empirically, our analysis confirms that a higher LER corresponds to a larger minimal achievable rank (preserving more information), and exhibits a strong positive correlation (PCC=0.986) with downstream TAS precision.
+            As stated in 
+<b>Proposition 1</b>
+, LER is a tight upper bound for the matrix rank: \( 1 \leq \text{LER}(Z) \leq \text{rank}(Z) \), providing a stable indicator of representation diversity.
           </p>
         </div>
       </div>
       <div class="column is-5 has-text-centered">
-        <!-- 建议把论文中的 Figure 2(a) 和 2(b) 拼成一张图放在这里 -->
-        <img src="static/images/ler_perf_analysis.png" alt="LER Analysis: Rank and TAS Performance" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-        <p class="is-size-7 mt-2 has-text-grey">
-          <i>Positive correlations between LER, minimal achievable rank, and downstream TAS performance.</i>
-        </p>
+        <img src="static/images/ler_perf_analysis.png" alt="LER Analysis" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" />
+        <p class="is-size-7 mt-2 has-text-grey"><i>LER exhibits a strong positive correlation (PCC=0.986) with TAS performance.</i></p>
       </div>
     </div>
 
-    <!-- === 第二部分：不同尺度的理论对比与Motion Unit的优越性 (对应论文 Figure 1, 2c) === -->
-    <div class="columns is-vcentered">
+    <!-- 2. Motion Unit 的理论优越性 -->
+    <div class="columns is-vcentered mb-6">
       <div class="column is-5 has-text-centered">
-        <!-- 建议使用论文中的 Figure 2(c)（不同尺度的LER对比图）或者连同 Figure 1 一起拼图 -->
-        <img src="static/images/ler_scale_analysis.png" alt="LER at different temporal scales" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-        <p class="is-size-7 mt-2 has-text-grey">
-          <i>LER evaluated for models with learning objectives of different temporal scales.</i>
-        </p>
+        <img src="static/images/ler_scale_analysis.png" alt="Scale Analysis" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" />
+        <p class="is-size-7 mt-2 has-text-grey"><i>Comparison of LER across different modeling scales (S, F, and M).</i></p>
       </div>
       <div class="column is-7">
         <div class="content is-medium has-text-justified" style="padding-left: 1rem;">
-          <h3 class="title is-4">2. Superiority of Motion Unit-Scale</h3>
+          <h3 class="title is-4">2. Why Motion Unit-Scale?</h3>
           <p>
-            With the tool of LER, we reveal the theoretical limitations of existing modeling paradigms: <i>sequence-scale learning</i> heavily suffers from local dimension collapse by indiscriminately pulling local representations together, while <i>frame-scale learning</i> is inherently bounded by the low dimensionality of raw skeletons.
+            Our 
+<b>Proposition 4</b>
+ reveals that LER is inversely proportional to the squared Frobenius norm of the similarity matrix:
           </p>
+          <div class="notification is-white has-text-centered" style="font-size: 1.2rem; padding: 1rem;">
+            \[ \text{LER}(Z) \geq \frac{m^2}{\|Z^\top Z\|_F^2} \]
+          </div>
           <p>
-            Conversely, we mathematically demonstrate (<i>Prop. 4</i>) that introducing our proposed <b>motion unit-scale learning</b> effectively increases the lower bound of LER. By acting as a semantic bridge, it enriches local representation diversity and mitigates the local dimension collapse problem.
+            By introducing 
+<b>Motion Units</b>
+ (clips of consecutive frames), we enrich local short-term semantics, effectively minimizing \( \|Z^\top Z\|_F^2 \) and increasing the lower bound of LER to alleviate dimension collapse.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. LER Regularization (LERR) -->
+    <div class="columns is-vcentered">
+      <div class="column is-12">
+        <div class="content is-medium">
+          <h3 class="title is-4">3. Local Effective Rank Regularization (LERR)</h3>
+          <p>
+            To actively encourage higher local intrinsic dimension during pre-training, we propose 
+<b>LERR</b>
+. It acts as a direct constraint on the latent manifold by minimizing the reciprocal of LER:
+          </p>
+          <div class="notification is-white has-text-centered" style="font-size: 1.2rem; padding: 1rem; margin: 0 auto; max-width: 400px;">
+            \[ \mathcal{L}_r = \frac{1}{\text{LER}(Z_m^{\text{motion}})} \]
+          </div>
+          <p class="mt-4 has-text-justified">
+            This regularization forces the model to span a higher-dimensional manifold, ensuring that temporally adjacent but semantically distinct motions are mapped to distinguishable representations.
           </p>
         </div>
       </div>
