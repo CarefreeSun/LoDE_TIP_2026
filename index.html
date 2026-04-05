@@ -312,28 +312,52 @@
 <!-- Theoretical Analysis Section -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
-    <h2 class="title has-text-centered mb-5">Core Theoretical Insights</h2>
-    <div class="content is-medium has-text-justified">
-      <p>
-        To address the 
-<b>local dimension collapse</b> problem in self-supervised skeleton-based Temporal Action Segmentation (TAS), we theoretically introduce and analyze the <b>Local Effective Rank (LER)</b>
- as a manifold dimension measure. 
-      </p>
-      <ul>
-        <li>
-          <b>LER Indicates Information and Performance (Prop. 1 & Lemma 1):</b>
- We theoretically prove that LER is a tight upper bound for the rank of local representations. A higher LER corresponds to a larger minimal coding length (more information content), which is positively correlated with downstream TAS precision.
-        </li>
-        <li>
-          <b>Limitations of Existing Scales:</b> Our analysis reveals that <i>sequence-scale learning</i> leads to severe local dimension collapse by indiscriminately pulling local representations together, while <i>frame-scale learning</i>
- is inherently bounded by the low dimensionality of raw skeleton inputs.
-        </li>
-        <li>
-          <b>Superiority of Motion Unit-Scale (Prop. 4):</b> We mathematically demonstrate that our proposed <b>motion unit-scale learning</b>
- effectively increases the lower bound of LER. It bridges the semantic gap between frames and sequences, mitigating local dimension collapse and enriching representation diversity.
-        </li>
-      </ul>
+    <h2 class="title has-text-centered mb-6">Core Theoretical Insights</h2>
+    
+    <!-- === 第一部分：LER指标及其与性能的关系 (对应论文 Figure 2a, 2b) === -->
+    <div class="columns is-vcentered mb-6">
+      <div class="column is-7">
+        <div class="content is-medium has-text-justified">
+          <h3 class="title is-4">1. LER Indicates Information and Performance</h3>
+          <p>
+            To quantify <b>local dimension collapse</b> in skeleton representations, we introduce the <b>Local Effective Rank (LER)</b> as a stable manifold dimension measure. 
+          </p>
+          <p>
+            Theoretically, we prove (<i>Prop. 1 & Lemma 1</i>) that LER is a tight upper bound for the rank of local representations. Empirically, our analysis confirms that a higher LER corresponds to a larger minimal achievable rank (preserving more information), and exhibits a strong positive correlation (PCC=0.986) with downstream TAS precision.
+          </p>
+        </div>
+      </div>
+      <div class="column is-5 has-text-centered">
+        <!-- 建议把论文中的 Figure 2(a) 和 2(b) 拼成一张图放在这里 -->
+        <img src="static/images/ler_perf_analysis.png" alt="LER Analysis: Rank and TAS Performance" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+        <p class="is-size-7 mt-2 has-text-grey">
+          <i>Positive correlations between LER, minimal achievable rank, and downstream TAS performance.</i>
+        </p>
+      </div>
     </div>
+
+    <!-- === 第二部分：不同尺度的理论对比与Motion Unit的优越性 (对应论文 Figure 1, 2c) === -->
+    <div class="columns is-vcentered">
+      <div class="column is-5 has-text-centered">
+        <!-- 建议使用论文中的 Figure 2(c)（不同尺度的LER对比图）或者连同 Figure 1 一起拼图 -->
+        <img src="static/images/ler_scale_analysis.png" alt="LER at different temporal scales" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+        <p class="is-size-7 mt-2 has-text-grey">
+          <i>LER evaluated for models with learning objectives of different temporal scales.</i>
+        </p>
+      </div>
+      <div class="column is-7">
+        <div class="content is-medium has-text-justified" style="padding-left: 1rem;">
+          <h3 class="title is-4">2. Superiority of Motion Unit-Scale</h3>
+          <p>
+            With the tool of LER, we reveal the theoretical limitations of existing modeling paradigms: <i>sequence-scale learning</i> heavily suffers from local dimension collapse by indiscriminately pulling local representations together, while <i>frame-scale learning</i> is inherently bounded by the low dimensionality of raw skeletons.
+          </p>
+          <p>
+            Conversely, we mathematically demonstrate (<i>Prop. 4</i>) that introducing our proposed <b>motion unit-scale learning</b> effectively increases the lower bound of LER. By acting as a semantic bridge, it enriches local representation diversity and mitigates the local dimension collapse problem.
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 <!-- End Theoretical Analysis Section -->
